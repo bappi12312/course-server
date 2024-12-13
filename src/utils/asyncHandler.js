@@ -6,6 +6,10 @@ const asyncHandler = (funtion) => {
   }
 }
 
+export {
+  asyncHandler
+}
+
 
 // const asyncHandler = (fn) => async (req,res,next) =>{
 //     try{
