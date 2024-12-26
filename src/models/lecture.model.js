@@ -2,19 +2,19 @@ import mongoose from "mongoose";
 
 const lectureSchema = new mongoose.Schema({
   lectureTitle: {
-    type: String,
-    required: true,
+      type: String,
+      required: true
   },
   videoUrl: {
-    type: String,
+      type: String
   },
   publicId: {
-    type: String
+      type: String
   },
   isPreview: {
-    type: Boolean,
-    default: false,
+      type: Boolean,
+      default: false
   }
 },{timestamps: true})
 
-export const Lecture = mongoose.model("Lecture", lectureSchema);
+export const Lecture = mongoose.model("Lecture", lectureSchema)
