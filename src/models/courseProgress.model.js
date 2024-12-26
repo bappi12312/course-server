@@ -29,3 +29,5 @@ const courseProgressSchema = new mongoose.Schema({
         default: false
     }
 }, { timestamps: true });
+
+export const CourseProgress = mongoose.model("CourseProgress", courseProgressSchema);

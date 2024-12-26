@@ -1,51 +1,48 @@
-import mongoose from "mongoose"
+import mongoose from "mongoose";
 
 const courseSchema = new mongoose.Schema({
-  courseTitle: {
-    type: String,
-    required: true
-  },
-  subTitle: {
-    type: String,
-  },
-  description: {
-    type: String,
-  },
-  category: {
-    type: String,
-    required: true
-  },
-  courseLevel: {
-    type: String,
-    enum: ["Beginner", "Medium", "Advance"]
-  },
-  coursePrice: {
-    type: Number
-  },
-  courseThumbnail: {
-    type: String
-  },
-  enrolledStudents: [
-    {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: 'User'
-    }
-  ],
-  lectures: [
-    {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "Lecture"
-    }
-  ],
-  creator: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'User'
-  },
-  isPublished: {
-    type: Boolean,
-    default: false
-  }
-}, { timestamps: true })
+    courseTitle:{
+        type:String,
+        required:true
+    },
+    subtitle:{
+        type:String,
+    },
+    courseDescription:{
+        type:String,
+    },
+    coursePrice:{
+        type:Number,
+    },
+    courseImage:{
+        type:String,
+        default:""
+    },
+    instructorId:{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:"User",
+        required:true
+    },
+    isPublished:{
+        type:Boolean,
+        default:false
+    },
+    // isApproved:{
+    //     type:Boolean,
+    //     default:false
+    // },
+    lectures:[
+        {
+            type:mongoose.Schema.Types.ObjectId,
+            ref:"Lecture"
+        }
+    ],
+    enrolledStudents:[
+        {
+            type:mongoose.Schema.Types.ObjectId,
+            ref:"User"
+        }
+    ]
+},{timestamps:true})
 
-
-export const Course = mongoose.model("Course", courseSchema);
+export const Course = mongoose.model("Course",courseSchema)
